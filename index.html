@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment-6</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+       /* Add some styles for the button when active */
+       .btn.active {
+            border: 1px solid red;   
+        }
+        .btn {
+            margin: 5px;
+            padding: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .hidden {
+         display: none;
+        }
+    </style>
+</head>
+<body class="md:px-3">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+          <!-- Left (Logo) -->
+          <div class="flex items-center">
+            <img src="./images/logo.webp" alt="Peddy Logo" class="h-5">
+            <h1 class="ml-3 text-2xl font-semibold">Peddy</h1>
+          </div>
+      
+          <!-- Center (Navigation Links) -->
+          <div class="flex-1 hidden md:flex justify-center">
+            <ul class="flex space-x-6">
+              <li><a href="#" class="text-gray-700 hover:text-blue-500">Home</a></li>
+              <li><a href="#" class="text-gray-700 hover:text-blue-500">Shop</a></li>
+              <li><a href="#" class="text-gray-700 hover:text-blue-500">Contact</a></li>
+            </ul>
+          </div>
+      
+          <!-- Right (Profile Icon & Mobile Menu Button) -->
+          <div class="flex items-center space-x-4">
+            <!-- Profile Icon (visible on larger screens) -->
+            <div class="hidden md:block">
+              <a href="#">
+                <img src="./images/frofile-icon.png" alt="Profile" class="h-8 w-8 rounded-full">
+              </a>
+            </div>
+      
+            <!-- Mobile Menu Button (visible on smaller screens) -->
+            <div class="md:hidden flex items-center">
+              <button class="flex items-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+<!--Banner Section-->
+<section>
+    <div class="text-center">
+      <p class="mt-10">Bringing Families Together ❤️</p>
+      <h1 class="mt-2 text-4xl font-bold">Your Path to Adoption <br> Starts Here</h1>
+      <p class="mt-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
+      <!-- Button -->
+      <button class="btn btn-active btn-accent mt-4 text-white" id="viewMoreBtn">View More</button>
+      <!-- Image -->
+      <img class="mx-auto mt-8" src="./images/pet.webp" alt="Pet Image">
+    </div>
+  </section>
+
+  <section>
+    <div class="text-center mt-7">
+      <h1 class="text-2xl font-bold">Adopt  Your  Best Friend</h1>
+      <p class="mt-4">It is a long established fact that a reader will be distracted by the readable content of a <br> 
+        page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+    </div>
+  </section>
+
+
+  <section id="SortPriceSection">
+    <div id="categories" class="mx-auto flex justify-center mt-10 gap-3"></div>
+    <div class="flex items-center justify-between max-w-7xl mx-auto">
+      <h1 class="text-2xl font-bold">Best Deal For you</h1>
+      <button class="btn btn-active btn-accent mt-4 text-white" id="sortPriceBtn">Sort by Price</button>
+    </div>
+  </section>
+  
+
+  <main class="mt-6 flex-1">
+    <div class="flex">
+      <!-- First div taking 75% width -->
+       <div class="w-full md:w-3/4">
+        <section id="pets" class="max-w-7xl mx-auto gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-3">
+        </section>
+      </div>
+      
+      <!-- Second div taking 25% width -->
+      <div class="w-1/4 p-4 hidden md:block mx-[10px]">
+        <div id="likeContainer" class="grid grid-cols-2 gap-2 ">
+            <!--Image show here-->
+        </div>
+    </div>
+    </div>
+  </main>
+  
+    <!-- Details Modal -->
+<button id="showModalData" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+<dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal-content">
+      <!-- modal content -->
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<!-- Adoption Confirmation Modal -->
+<button id="showAdoptModal" class="btn hidden" onclick="adoptModal.showModal()">Open Modal</button>
+
+<dialog id="adoptModal" class="modal fixed inset-x-0 top-1/3 w-full h-52 bg-transparent">
+  <div class="modal-box text-center bg-white p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold">Congrats</h2>
+    <p class="mt-4">Adoption Process has started for your pet</p>
+    <h1 id="countdown" class="text-4xl font-bold mt-4">3</h1>
+  </div>
+</dialog>
+
+
+
+<script src="index.js"></script>
+<link rel='stylesheet' href='styles.css'>
+    
+</body>
+</html>
